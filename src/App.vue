@@ -1,26 +1,32 @@
-<template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
-</template>
 
-<script>
-import HelloWorld from './components/HelloWorld.vue'
+<script setup>
+import { ref, computed } from 'vue'
+import Home from './components/Home'
+import Login from './components/Login'
+import About from './components/About.vue'
+import NotFound from './components/NotFound'
 
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
+const routes = {
+  '/': Home,
+  '/about': About,
+  '/login': Login
 }
+
+const currentPath = ref(window.location.hash)
+
+window.addEventListener('hashchange', () => {
+  currentPath.value = window.location.hash
+})
+
+const currentView = computed(() => {
+  return routes[currentPath.value.slice(1) || '/'] || NotFound
+})
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+<template>
+  <a href="#/">Home</a> |
+  <a href="#/about">About</a> |
+  <a href="#/login">Login</a> |
+  <a href="#/non-existent-path">Broken Link</a>
+  <component :is="currentView" />
+</template>
