@@ -34,7 +34,7 @@ const onLoginClick = () => {
     redirect: 'follow'
   };
 
-  fetch("login/", requestOptions)
+  fetch("api/login/", requestOptions)
       .then(response => response.json())
       .then(result => {
         console.log(result)
