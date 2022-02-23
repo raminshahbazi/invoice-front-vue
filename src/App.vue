@@ -38,7 +38,7 @@ const getUserDate = () => {
     redirect: 'follow'
   };
 
-  fetch("user-info/", requestOptions)
+  fetch("api/user-info/", requestOptions)
       .then(response => response.json())
       .then(result => userInfo.value = result[0])
       .catch(error => console.log('error', error));
