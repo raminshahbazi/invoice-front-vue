@@ -4,6 +4,7 @@ import InvoiceChanges from "../pages/InvoiceChanges";
 import Items from "../pages/Items";
 import Types from "../pages/Types";
 import Countries from "../pages/Countries";
+import Login from "../components/Login";
 import NotFound from "../pages/NotFound";
 
 const routes = [
@@ -12,6 +13,7 @@ const routes = [
   {path: "/items", component: Items},
   {path: "/types", component: Types},
   {path: "/countries", component: Countries},
+  {path: "/Login", component: Login},
   {path: "/:pathMatch(.*)*", name: "NotFound", component: NotFound}
 ]
 

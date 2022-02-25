@@ -14,5 +14,6 @@ const routes = [
   'items',
   'types',
   'countries',
+  'login',
 ]
 </script>
