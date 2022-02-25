@@ -1,15 +1,9 @@
-<template>
-<h2>
-  Invoices
-</h2>
-</template>
+<script setup>
 
-<script>
-export default {
-name: "Invoices"
-}
 </script>
 
-<style scoped>
-
-</style>
+<template>
+  <h2>
+    Invoices
+  </h2>
+</template>
